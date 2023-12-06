@@ -10,7 +10,7 @@ describe('MainController', () => {
   describe('checkHello', () => {
     it('Deve retornar "Chat Orchestrator running...."', async () => {
       expect(await mainController.getHello()).toBe(
-        'Chat Orchestrator running....',
+        'Chat Orchestrator running...',
       );
     });
   });
