@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'epic-chat/app-backend:latest'
+        DOCKER_IMAGE = 'epic-chat/app-orchestrator:latest'
     }
 
     stages {
@@ -33,10 +33,10 @@ pipeline {
         stage('Run Application') {
             steps {
                 script {
-                    sh 'docker stop epic-chat-backend || true'
-                    sh 'docker rm epic-chat-backend || true'
+                    sh 'docker stop epic-chat-orchestrator || true'
+                    sh 'docker rm epic-chat-orchestrator || true'
 
-                    sh "docker run -d --name=epic-chat-backend -p 3000:3000 $DOCKER_IMAGE"
+                    sh "docker run -d --name=epic-chat-orchestrator -p 3003:3003 --hostname=app-orchestrator --network=global_network $DOCKER_IMAGE"
                 }
             }
         }
