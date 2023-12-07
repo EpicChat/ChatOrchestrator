@@ -13,4 +13,9 @@ export class MainController {
   getTest(): string {
     return 'Apenas um teste';
   }
+
+  @Get('/test2')
+  getTest2(): string {
+    return 'Apenas um teste 2';
+  }
 }
